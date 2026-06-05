@@ -19,6 +19,8 @@ The design features animated PCB traces, glowing neon signals, cyberpunk aesthet
 
 Features a central processor chip connected to multiple animated PCB traces with colorful flowing signals.
 
+![Preview](preview.png)
+
 ## Technologies Used
 
 * HTML5
