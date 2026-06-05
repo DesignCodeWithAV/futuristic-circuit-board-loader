@@ -1,0 +1,185 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:
+  radial-gradient(circle at top,#123b2d 0%,#071510 45%,#020504 100%);
+  font-family:Arial,sans-serif;
+}
+
+body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(rgba(0,255,120,.06) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(0,255,120,.06) 1px,transparent 1px);
+
+  background-size:40px 40px;
+}
+
+body::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+  radial-gradient(circle at 20% 20%,rgba(0,255,100,.08),transparent 20%),
+  radial-gradient(circle at 80% 30%,rgba(0,255,180,.06),transparent 20%),
+  radial-gradient(circle at 50% 80%,rgba(0,255,120,.05),transparent 25%);
+  filter:blur(30px);
+}
+
+.particles{
+  position:absolute;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+.particles span{
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:#00ff88;
+  border-radius:50%;
+  box-shadow:0 0 10px #00ff88;
+  animation:float 10s linear infinite;
+  opacity:.5;
+}
+
+.particles span:nth-child(1){left:10%;animation-delay:0s;}
+.particles span:nth-child(2){left:20%;animation-delay:2s;}
+.particles span:nth-child(3){left:40%;animation-delay:4s;}
+.particles span:nth-child(4){left:60%;animation-delay:1s;}
+.particles span:nth-child(5){left:80%;animation-delay:6s;}
+.particles span:nth-child(6){left:90%;animation-delay:3s;}
+
+.main-container{
+    width:900px;
+    position:relative;
+    z-index:2;
+    margin-bottom: -40px;
+}
+
+svg{
+  width:100%;
+  filter:drop-shadow(0 0 30px rgba(0,255,120,.15));
+}
+
+.trace-bg{
+  stroke:#123b2d;
+  stroke-width:2;
+  fill:none;
+  opacity:.8;
+}
+
+.trace-flow{
+  stroke-width:2.5;
+  fill:none;
+  stroke-linecap:round;
+  stroke-dasharray:50 500;
+  stroke-dashoffset:550;
+  filter:drop-shadow(0 0 8px currentColor);
+  animation:flow 3s linear infinite;
+}
+
+.trace-flow::after{
+  filter:blur(10px);
+}
+
+.yellow{
+  stroke:#ffe600;
+  color:#ffe600;
+}
+
+.blue{
+  stroke:#00d9ff;
+  color:#00d9ff;
+}
+
+.green{
+  stroke:#00ff66;
+  color:#00ff66;
+}
+
+.purple{
+  stroke:#a855ff;
+  color:#a855ff;
+}
+
+.red{
+  stroke:#ff4d4d;
+  color:#ff4d4d;
+}
+
+.loading-text{
+  letter-spacing:5px;
+  font-size:10px;
+  font-weight:bold;
+  fill:#d7ffe9;
+  animation:textBlink 1.5s infinite;
+}
+
+.pin{
+  filter:drop-shadow(0 0 6px rgba(255,255,255,.15));
+}
+
+.node{
+  fill:#000;
+  stroke:#00ff88;
+  stroke-width:1;
+  animation:nodePulse 1.5s infinite alternate;
+}
+
+@keyframes flow{
+  to{
+    stroke-dashoffset:0;
+  }
+}
+
+@keyframes textBlink{
+  0%,100%{
+    opacity:1;
+  }
+
+  50%{
+    opacity:.4;
+  }
+}
+
+@keyframes nodePulse{
+  from{
+    filter:drop-shadow(0 0 3px #00ff88);
+  }
+
+  to{
+    filter:drop-shadow(0 0 12px #00ff88);
+  }
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(100vh);
+    opacity:0;
+  }
+
+  20%{
+    opacity:.5;
+  }
+
+  100%{
+    transform:translateY(-100px);
+    opacity:0;
+  }
+}
